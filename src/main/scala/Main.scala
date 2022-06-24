@@ -85,5 +85,23 @@
   val res11 = queue5.get()
 
   println(s"res11: $res11")
+
+  // We can also pass trait parameters to mixins
+  class Animal
+
+  trait Philosophical(message: String):
+    def philosophise: String = message
+
+  class Frog extends Animal, Philosophical("I croak, therefore I am!")
+  class Duck extends Animal, Philosophical("I quack, therefore I am!")
+
+  val frog = new Frog
+  val duck = new Duck
+
+  val res12 = frog.philosophise
+  val res13 = duck.philosophise
+
+  println(s"res12: $res12")
+  println(s"res13: $res13")
 }
 
